@@ -43,9 +43,9 @@ def blog():
 def login():
     return render_template("login.html")
 
-@app.route("/hakkimizda")
-def hakkimizda():
-    return render_template("hakkimizda.html")
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 @app.route("/contact")
 def contact():  

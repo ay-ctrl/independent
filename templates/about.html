@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bağımsız</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='about.css')}}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <main>
+      <!-- Sayfa Başlığı -->
+      <section class="about-header">
+        <h1>Hakkımızda</h1>
+        <p>Bağımlılıkla mücadele ve toplumsal iyileşme için yanınızdayız.</p>
+      </section>
+
+      <!-- Misyon / Vizyon -->
+      <section class="about-mission">
+        <div class="container">
+          <div class="mission">
+            <h2>Misyonumuz</h2>
+            <p>
+              Kurumumuz, bireylerin bağımlılıklardan uzak, sağlıklı ve üretken
+              bir yaşam sürmesine katkı sağlamayı amaçlamaktadır. Eğitim,
+              danışmanlık ve farkındalık projeleri ile toplumda bilinç
+              oluşturuyoruz.
+            </p>
+          </div>
+          <div class="vision">
+            <h2>Vizyonumuz</h2>
+            <p>
+              Güven, destek ve bilimin rehberliğinde; bağımlılıkla mücadelede
+              öncü, topluma yön veren ve uluslararası alanda tanınan bir kurum
+              olmak.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kurum Hikayesi -->
+      <section class="about-story">
+        <div class="container">
+          <h2>Hikayemiz</h2>
+          <p>
+            Kurumumuz, yıllar içerisinde edinilen deneyim ve uzman kadrosuyla,
+            bağımlılıkla mücadele alanında birçok başarılı projeye imza
+            atmıştır. Sadece bireyleri değil, aileleri ve toplumu da içine alan
+            bütüncül bir yaklaşımı benimsemekteyiz.
+          </p>
+        </div>
+      </section>
+
+      <!-- Ekip -->
+      <section class="about-team">
+        <div class="container">
+          <h2>Ekibimiz</h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <img
+                src="{{ url_for('static', filename='img/person.jpg') }}"
+                alt="Uzman 1"
+              />
+              <h3>Dr. Ayşe Yılmaz</h3>
+              <p>Klinik Psikolog</p>
+            </div>
+            <div class="team-card">
+              <img
+                src="{{ url_for('static', filename='img/person.jpg') }}"
+                alt="Uzman 2"
+              />
+              <h3>Mehmet Demir</h3>
+              <p>Sosyal Hizmet Uzmanı</p>
+            </div>
+            <div class="team-card">
+              <img
+                src="{{ url_for('static', filename='img/person.jpg') }}"
+                alt="Uzman 3"
+              />
+              <h3>Elif Kaya</h3>
+              <p>Rehberlik ve Danışman</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+  </body>
+</html>
