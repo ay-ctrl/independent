@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bağımsız - Bağımlılık Testi</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <main>
+      <!-- Hero Carousel -->
+      <section class="hero-carousel">
+        <div class="carousel">
+          <div
+            class="slide active"
+            style="background-image: url('/static/img/slide1.jpg')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('/static/img/slide2.jpg')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('/static/img/slide3.jpg')"
+          ></div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+      </section>
+
+      <!-- Kurum Açıklaması -->
+      <section class="about-intro">
+        <div class="container text-center">
+          <h2>Bağımlılıksız Bir Gelecek İçin</h2>
+          <p>
+            Kurumumuz, bireylerin bağımlılıklarla mücadelesinde yanında olmayı,
+            topluma umut ve güç vermeyi hedeflemektedir. Eğitim, danışmanlık ve
+            destek programlarımızla herkes için sağlıklı bir gelecek inşa
+            ediyoruz.
+          </p>
+          <a href="/hakkimizda" class="btn btn-primary">Hakkımızda</a>
+        </div>
+      </section>
+
+      <!-- Bağımlılık Testi -->
+      <section class="test-section">
+        <div class="container text-center">
+          <h2>Bağımlılık Testi</h2>
+          <p>
+            Kendinizi değerlendirmeniz için hazırladığımız bağımlılık testine
+            katılın. Sonuçlarınıza göre size en uygun desteği sunuyoruz.
+          </p>
+          <a href="/test" class="btn btn-green">Teste Katıl</a>
+        </div>
+      </section>
+
+      <!-- Blog Carousel -->
+      <section class="blog-carousel">
+        <div class="container">
+          <h2 class="text-center">Blog Yazılarımız</h2>
+          <div class="carousel-wrapper">
+            <div class="blog-card">
+              <img src="/static/img/blog1.jpg" alt="Blog 1" />
+              <h3>Bağımlılıkla Mücadelede İlk Adımlar</h3>
+              <p>Kısa özet metin...</p>
+              <a href="/blog/1">Devamını Oku</a>
+            </div>
+            <div class="blog-card">
+              <img src="/static/img/blog2.jpg" alt="Blog 2" />
+              <h3>Destek Gruplarının Önemi</h3>
+              <p>Kısa özet metin...</p>
+              <a href="/blog/2">Devamını Oku</a>
+            </div>
+            <div class="blog-card">
+              <img src="/static/img/blog3.jpg" alt="Blog 3" />
+              <h3>Sağlıklı Alışkanlıklar Kazanmak</h3>
+              <p>Kısa özet metin...</p>
+              <a href="/blog/3">Devamını Oku</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Haberler -->
+      <section class="news-section">
+        <div class="container">
+          <h2 class="text-center">Haberler</h2>
+          <div class="cards">
+            <div class="card">
+              <img src="/static/img/news1.jpg" alt="Haber 1" />
+              <h3>Yeni Eğitim Programı Başladı</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+            <div class="card">
+              <img src="/static/img/news2.jpg" alt="Haber 2" />
+              <h3>Yerel İş Birliği Duyurusu</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+            <div class="card">
+              <img src="/static/img/news3.jpg" alt="Haber 3" />
+              <h3>Toplum Sağlığı Etkinliği</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Yayınlar -->
+      <section class="publications-section">
+        <div class="container">
+          <h2 class="text-center">Yayınlarımız</h2>
+          <div class="cards">
+            <div class="card">
+              <img src="/static/img/pub1.jpg" alt="Yayın 1" />
+              <h3>Bağımlılık ve Toplum</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+            <div class="card">
+              <img src="/static/img/pub2.jpg" alt="Yayın 2" />
+              <h3>Gençler İçin Rehber</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+            <div class="card">
+              <img src="/static/img/pub3.jpg" alt="Yayın 3" />
+              <h3>Bağımsızlık Yolunda</h3>
+              <p>Kısa açıklama...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+  </body>
+</html>

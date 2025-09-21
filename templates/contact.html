@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bağımsız</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='contact.css')}}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <main>
+      <section class="contact-section">
+        <!-- Sol blok (form) -->
+        <div class="contact-wrap">
+          <h3 class="mb-4">Mesaj Gönderin</h3>
+          <form
+            method="POST"
+            id="contactForm"
+            name="contactForm"
+            class="contactForm"
+          >
+            <label for="name">Ad Soyad</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              placeholder="Adınız Soyadınız"
+            />
+
+            <label for="email">E-posta</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="E-posta adresiniz"
+            />
+
+            <label for="subject">Konu</label>
+            <input
+              type="text"
+              class="form-control"
+              name="subject"
+              id="subject"
+              placeholder="Mesaj konusu"
+            />
+
+            <label for="message">Mesaj</label>
+            <textarea
+              name="message"
+              class="form-control"
+              id="message"
+              rows="5"
+              placeholder="Mesajınızı yazın"
+            ></textarea>
+
+            <button type="submit" class="btn btn-send">Mesajı Gönder</button>
+          </form>
+        </div>
+
+        <!-- Sağ blok (iletişim bilgileri) -->
+        <div class="info-wrap">
+          <h3>İletişim Bilgilerimiz</h3>
+          <p class="info-p">
+            Sorularınız ve önerileriniz için bizimle her zaman iletişime
+            geçebilirsiniz.
+          </p>
+
+          <div class="info-box">
+            <i class="fa fa-map-marker"></i>
+            <p><strong>Adres:</strong> Kızılay, Ankara / Türkiye</p>
+          </div>
+          <div class="info-box">
+            <i class="fa fa-phone"></i>
+            <p>
+              <strong>Telefon:</strong>
+              <a href="tel:+903123456789">+XX XXX XXX XX XX</a>
+            </p>
+          </div>
+          <div class="info-box">
+            <i class="fa fa-envelope"></i>
+            <p>
+              <strong>E-posta:</strong>
+              <a href="mailto:info@kurum.org">info@kurum.org</a>
+            </p>
+          </div>
+          <div class="info-box">
+            <i class="fa fa-globe"></i>
+            <p><strong>Web:</strong> <a href="#">www.kurum.org</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+  </body>
+</html>

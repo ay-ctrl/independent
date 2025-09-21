@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bağımsız</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='form.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main>
+      <div class="form-container">
+        <h1>Bağımlılık Testi</h1>
+        <p>
+          Aşağıdaki kısa formu doldurarak, hangi maddelere karşı risk
+          taşıdığınızı öğrenin ve bağımlılığın hayatınızı etkilemeden önce önlem
+          alın. Unutmayın, bağımlılık kronik bir hastalık olabilir, en güvenli
+          yol hiç bağlanmamaktır.
+        </p>
+        <form id="wizardForm" method="POST">
+          <!-- Adım 1: Age -->
+          <div class="form-step active">
+            <label for="age">Yaş:</label>
+            <select name="age" id="age" required>
+              <option value="">Seçiniz</option>
+              <option value="18-24">18-24</option>
+              <option value="25-34">25-34</option>
+              <option value="35-44">35-44</option>
+              <option value="45-54">45-54</option>
+              <option value="55-64">55-64</option>
+              <option value="65+">65+</option>
+            </select>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
+
+          <!-- Adım 2: Gender -->
+          <div class="form-step">
+            <label for="gender">Cinsiyet:</label>
+            <select name="gender" id="gender" required>
+              <option value="">Seçiniz</option>
+              <option value="Female">Kadın</option>
+              <option value="Male">Erkek</option>
+            </select>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
+
+          <!-- Adım 3: Education -->
+          <div class="form-step">
+            <label for="education">Eğitim:</label>
+            <select name="education" id="education" required>
+              <option value="">Seçiniz</option>
+              <option value="Left school before 16">
+                16'dan önce okul bırakıldı
+              </option>
+              <option value="Left school at 16">
+                16 yaşında okul bırakıldı
+              </option>
+              <option value="Left school at 17">
+                17 yaşında okul bırakıldı
+              </option>
+              <option value="Left school at 18">
+                18 yaşında okul bırakıldı
+              </option>
+              <option value="Some college/university, no degree">
+                Üniversite, diploma yok
+              </option>
+              <option value="Professional certificate/diploma">
+                Mesleki sertifika/diploma
+              </option>
+              <option value="University degree">Üniversite diploması</option>
+              <option value="Masters degree">Yüksek lisans</option>
+              <option value="Doctorate degree">Doktora</option>
+            </select>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
+
+          <!-- Adım 4: Country -->
+          <div class="form-step">
+            <label for="country">Ülke:</label>
+            <select name="country" id="country" required>
+              <option value="">Seçiniz</option>
+              <option value="Australia">Avustralya</option>
+              <option value="Canada">Kanada</option>
+              <option value="New Zealand">Yeni Zelanda</option>
+              <option value="Other">Diğer</option>
+              <option value="Republic of Ireland">İrlanda</option>
+              <option value="UK">İngiltere</option>
+              <option value="USA">ABD</option>
+            </select>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
+
+          <!-- Adım 5: Ethnicity -->
+          <div class="form-step">
+            <label for="ethnicity">Etnik Köken:</label>
+            <select name="ethnicity" id="ethnicity" required>
+              <option value="">Seçiniz</option>
+              <option value="Asian">Asyalı</option>
+              <option value="Black">Siyah</option>
+              <option value="Mixed-Black/Asian">Karma (Siyah/Asyalı)</option>
+              <option value="Mixed-White/Asian">Karma (Beyaz/Asyalı)</option>
+              <option value="Mixed-White/Black">Karma (Beyaz/Siyah)</option>
+              <option value="Other">Diğer</option>
+              <option value="White">Beyaz</option>
+            </select>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
+
+          <!-- Adım 6: Personality & Scores -->
+          <div class="form-step">
+            <label for="nscore">Neuroticism (nscore):</label>
+            <input
+              type="number"
+              step="0.01"
+              name="nscore"
+              id="nscore"
+              required
+            />
+
+            <label for="escore">Extraversion (escore):</label>
+            <input
+              type="number"
+              step="0.01"
+              name="escore"
+              id="escore"
+              required
+            />
+
+            <label for="oscore">Openness (oscore):</label>
+            <input
+              type="number"
+              step="0.01"
+              name="oscore"
+              id="oscore"
+              required
+            />
+
+            <label for="ascore">Agreeableness (ascore):</label>
+            <input
+              type="number"
+              step="0.01"
+              name="ascore"
+              id="ascore"
+              required
+            />
+
+            <label for="cscore">Conscientiousness (cscore):</label>
+            <input
+              type="number"
+              step="0.01"
+              name="cscore"
+              id="cscore"
+              required
+            />
+
+            <label for="impulsive">Impulsiveness:</label>
+            <input
+              type="number"
+              step="0.01"
+              name="impulsive"
+              id="impulsive"
+              required
+            />
+
+            <label for="ss">Sensation Seeking (ss):</label>
+            <input type="number" step="0.01" name="ss" id="ss" required />
+
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="submit">Gönder</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script>
+      const steps = document.querySelectorAll(".form-step");
+      const nextBtns = document.querySelectorAll(".next-btn");
+      const prevBtns = document.querySelectorAll(".prev-btn");
+      let currentStep = 0;
+
+      nextBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (
+            !steps[currentStep].querySelector("select, input").checkValidity()
+          )
+            return;
+          steps[currentStep].classList.remove("active");
+          currentStep++;
+          steps[currentStep].classList.add("active");
+        });
+      });
+
+      prevBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          steps[currentStep].classList.remove("active");
+          currentStep--;
+          steps[currentStep].classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

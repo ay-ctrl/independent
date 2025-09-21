@@ -1,0 +1,26 @@
+<!-- Header / Menü -->
+<header>
+    <div class="container">
+    <div class="logo">
+        <h1>Bağımsız</h1>
+    </div>
+    <nav>
+        <ul class="nav-links">
+        <li><a href="/">Anasayfa</a></li>
+        <li><a href="{{url_for('form')}}">Bağımlılık Testi</a></li>
+        <li><a href="{{url_for('blog')}}">Blog</a></li>
+        <li><a href="/hakkimizda">Hakkımızda</a></li>
+        <li><a href="{{url_for('contact')}}">İletişim</a></li>
+        <li><a href="/policy">Gizlilik Politikası</a></li>
+        <button class="login" onclick="window.location.href='{{ url_for("login") }}'">
+            Giriş Yap
+        </button>
+        </ul>
+        <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+    </nav>
+    </div>
+</header>

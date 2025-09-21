@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bağımsız - Sonuç</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='result.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="page">
+      <div>
+        <h1>Sonuçlarınız</h1>
+        <p class="subtitle">
+          Profiliniz ve tahmini riskler şematik olarak gösterilmiştir. Her madde
+          için açıklama ve öneriler aşağıdadır.
+        </p>
+      </div>
+
+      <div class="grid">
+        <!-- Profil Kartı -->
+        <section class="card profile-card">
+          <h2>Profiliniz</h2>
+          <ul class="profile-list">
+            <li><strong>Yaş:</strong> {{ responses['age'] }}</li>
+            <li><strong>Cinsiyet:</strong> {{ responses['gender'] }}</li>
+            <li><strong>Eğitim:</strong> {{ responses['education'] }}</li>
+          </ul>
+          <div class="profile-note">
+            Bu bilgiler tahmin modelinin kişiselleştirilmesi için kullanıldı.
+          </div>
+        </section>
+
+        <!-- Özet Kartı -->
+        <section class="card summary-card">
+          <h2>Genel Özet</h2>
+          {# Bazı Jinja sürümlerinde dictsort filter'ının attribute parametresi
+          yok; bu yüzden en yüksek olasılığı elle seçiyoruz #} {% set
+          highest_name = None %} {% set highest_pred = None %} {% for drug, pred
+          in predictions.items() %} {% if highest_pred is none or
+          pred['probability'] > highest_pred['probability'] %} {% set
+          highest_name = drug %} {% set highest_pred = pred %} {% endif %} {%
+          endfor %} {% if highest_name %}
+          <div class="summary-item">
+            <div class="summary-title">En yüksek risk</div>
+            <div class="summary-value">
+              {{ highest_name }} — {{ (highest_pred['probability'] * 100) |
+              round(0) }}%
+            </div>
+          </div>
+          {% endif %}
+          <div class="legend">
+            <span class="legend-dot low"></span> Düşük
+            <span class="legend-dot moderate"></span> Orta
+            <span class="legend-dot high"></span> Yüksek
+            <span class="legend-dot very-high"></span> Çok Yüksek
+          </div>
+        </section>
+
+        <!-- Risk Sonuçları -->
+        <section class="results-column">
+          {% for drug, pred in predictions.items() %}
+          <article class="result-card">
+            <div class="result-header">
+              <div class="drug-name">{{ drug }}</div>
+              <div
+                class="badge {{ 'risk-' ~ pred['risk_level'] | lower | replace(' ', '-') }}"
+              >
+                {{ pred['risk_level'] }}
+              </div>
+            </div>
+
+            <div class="progress-row">
+              <div class="progress-label">Tahmini Olasılık</div>
+              <div
+                class="progress"
+                data-perc="{{ (pred['probability'] * 100) | round(0) }}"
+              >
+                <div class="progress-fill" style="width: 0%">
+                  {{ (pred['probability'] * 100) | round(0) }}%
+                </div>
+              </div>
+            </div>
+
+            <div class="explanation">
+              {% if pred.get('explanation') %} {{ pred['explanation'] }} {% else
+              %} {% if pred['risk_level'] in ['Low','Düşük','low'] %} Bu madde
+              için risk düşük görünüyor. Genel önlem: düzenli takip ve bilinçli
+              kullanım. {% elif pred['risk_level'] in
+              ['Moderate','Orta','moderate'] %} Orta düzey risk saptandı.
+              Mümkünse uzman görüşü ve kullanım değerlendirmesi önerilir. {%
+              else %} Yüksek risk tespit edildi. Derhal uzman desteği alınması
+              önerilir. {% endif %} {% endif %}
+            </div>
+
+            <div class="actions">
+              <a
+                href="/resources/{{ drug | replace(' ', '_') }}"
+                class="btn small"
+                >Daha fazla bilgi</a
+              >
+              <a
+                href="#"
+                onclick="window.print();return false;"
+                class="btn outline small"
+                >Yazdır</a
+              >
+            </div>
+          </article>
+          {% endfor %}
+        </section>
+      </div>
+    </main>
+    {% include 'footer.html' %}
+    <script>
+      // Basit progress bar animasyonu: yükleme sırasında genişlikleri ayarla
+      document.addEventListener("DOMContentLoaded", function () {
+        const bars = document.querySelectorAll(".progress");
+        bars.forEach(function (bar) {
+          const perc = Number(bar.getAttribute("data-perc")) || 0;
+          const fill = bar.querySelector(".progress-fill");
+          setTimeout(function () {
+            fill.style.width = perc + "%";
+          }, 100);
+        });
+      });
+    </script>
+  </body>
+</html>
