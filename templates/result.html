@@ -20,8 +20,8 @@
       <div>
         <h1>Sonuçlarınız</h1>
         <p class="subtitle">
-          Profiliniz ve tahmini riskler şematik olarak gösterilmiştir. Her madde
-          için açıklama ve öneriler aşağıdadır.
+          Profiliniz ve tahmini riskler şematik olarak gösterilmiştir. Yüksek
+          riskli maddeler aşağıdadır.
         </p>
       </div>
 
@@ -68,30 +68,32 @@
             </div>
 
             <div class="actions">
-              <a
-                href="/resources/{{ drug | replace(' ', '_') }}"
+              <button
                 class="btn small"
-                >Daha fazla bilgi</a
+                onclick="openModal('{{ drug | replace(' ', '_') }}')"
               >
+                Daha fazla bilgi
+              </button>
             </div>
           </article>
           {% endif %} {% endfor %}
         </section>
       </div>
     </main>
+
+    <!-- Modal Template -->
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle">Başlık</h3>
+        <p id="modalDescription">Madde açıklaması...</p>
+        <p id="modalFound">Hangi ortamlarda bulunduğu: ...</p>
+        <p id="modalTips">Öneriler: ...</p>
+      </div>
+    </div>
+
     {% include 'footer.html' %}
-    <script>
-      // Basit progress bar animasyonu: yükleme sırasında genişlikleri ayarla
-      document.addEventListener("DOMContentLoaded", function () {
-        const bars = document.querySelectorAll(".progress");
-        bars.forEach(function (bar) {
-          const perc = Number(bar.getAttribute("data-perc")) || 0;
-          const fill = bar.querySelector(".progress-fill");
-          setTimeout(function () {
-            fill.style.width = perc + "%";
-          }, 100);
-        });
-      });
-    </script>
+
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
   </body>
 </html>
