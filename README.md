@@ -1,33 +1,46 @@
-Bağımsız – Yapay Zeka Destekli Bağımlılık Risk Tahmin Modülü
+# Bağımsız – Yapay Zeka Destekli Bağımlılık Risk Tahmin Modülü
 
-Bağımsız, kullanıcıların potansiyel bağımlılık risklerini tahmin eden ve bu risklere karşı kişiselleştirilmiş öneriler sunan bir web modülüdür. Bu proje, bağımlılıkla mücadele eden kurumlar için tasarlanmış ve yapay zeka destekli bir çözüm sunmaktadır.
+**Proje Amacı:**
+Bağımsız, kullanıcıların potansiyel bağımlılık risklerini tahmin eden ve bu risklere karşı bilinçli kararlar alabilmelerini sağlayan bir web modülüdür. Bu proje, bağımlılıkla mücadele eden kurumlar için geliştirildi ve yapay zeka destekli bir çözüm sunmaktadır.
 
-Özellikler
+---
 
-Yapay Zeka Destekli Risk Tahmini: Kullanıcıdan alınan demografik ve davranışsal veriler analiz edilerek kişinin hangi maddelere veya alışkanlıklara bağımlılık geliştirme riski taşıdığı tahmin edilir.
+## Özellikler
 
-Kişiselleştirilmiş Öneriler: Her riskli madde için öneriler sunularak kullanıcının sağlıklı seçimler yapması desteklenir.
+* **Yapay Zeka Destekli Risk Analizi:** Kullanıcı verilerini analiz ederek hangi maddelere veya alışkanlıklara bağımlılık geliştirme riski taşıdığını tahmin eder.
+* **Kişiselleştirilmiş Öneriler:** Riskli maddelerle ilgili öneriler sunarak kullanıcının sağlıklı seçimler yapmasına yardımcı olur.
+* **Etkileşimli Görselleştirme:** Tahmini riskler progress bar ve interaktif kartlarla görselleştirilir.
+* **Farkındalık ve Eğitim:** Maddelerin ne olduğu, hangi ürünlerde bulunduğu ve bağımlılığın olası zararları hakkında bilgi verir.
 
-Görsel Geri Bildirim: Risk seviyeleri ve tahmini olasılıklar interaktif kartlar ve progress barlarla gösterilir.
+---
 
-Eğitim ve Farkındalık: Kullanıcı, riskli maddelerin hangi ürünlerde bulunduğunu ve bağımlılığın olası etkilerini öğrenir.
+## Kullanım
 
-Kullanım
+1. Kullanıcı, web sitesinde kişisel bilgilerini ve davranış anketini doldurur.
+2. Yapay zeka modeli verileri analiz eder ve tahmini riskleri belirler.
+3. Yüksek riskli maddeler için detaylı açıklama, bulunduğu ortamlar ve öneriler gösterilir.
+4. Kullanıcı, bu bilgilerle bağımlılıktan korunma stratejilerini geliştirebilir.
 
-Web sitesine giriş yaptıktan sonra, kullanıcı kişisel bilgilerini ve davranışlarına dair anketi doldurur.
+---
 
-Yapay zeka modeli verileri analiz eder ve tahmini riskleri hesaplar.
+## Teknolojiler
 
-Yüksek riskli maddeler için ayrı bir bölümde detaylı açıklama, bulunduğu ortamlar ve öneriler gösterilir.
+* **Frontend:** HTML, CSS, JavaScript
+* **Backend:** Python Flask
+* **Şablonlama:** Jinja2
+* **Yapay Zeka:** Kendi geliştirdiğimiz makine öğrenmesi modeli
 
-Kullanıcı, bu bilgileri kullanarak bağımlılıktan korunma stratejilerini geliştirebilir.
+---
 
-Teknolojiler
+## Katkıda Bulunma
 
-Frontend: HTML, CSS, JavaScript
+Projeye katkıda bulunmak için issue açabilir veya pull request gönderebilirsiniz. Özellikle bağımlılık farkındalığı, model geliştirme ve kullanıcı arayüzü iyileştirmeleri için öneriler değerlidir.
 
-Backend: Python Flask
+---
 
-Veri İşleme: Flask + Jinja2 templating
+## Lisans
 
-Yapay Zeka: Kendi geliştirdiğimiz makine öğrenmesi modeli
+MIT Lisansı
+
+---
+
