@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog - Bağımlılıkla Mücadele</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='blog.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="blog-page">
+      <h1>Blog</h1>
+      <p class="subtitle">
+        Bağımlılıkla mücadele, farkındalık ve rehberlik üzerine güncel yazılar.
+      </p>
+
+      <div class="blog-grid">
+        <!-- Blog Kart Örneği 1 -->
+        <article class="blog-card">
+          <img
+            class="blog-image"
+            src="{{ url_for('static', filename='img/blog1.jpg') }}"
+            alt="Bağımlılıkla Mücadele 1"
+          />
+          <div class="blog-content">
+            <div>
+              <div class="blog-title">Bağımlılığı Anlamak</div>
+              <p class="blog-excerpt">
+                Bağımlılığın psikolojik ve fiziksel boyutları, sebepleri ve
+                erken uyarı işaretleri hakkında bilgilendirici bir rehber.
+              </p>
+            </div>
+            <div class="blog-meta">
+              <span>20 Eylül 2025</span>
+              <a href="/blog/1" class="btn read-more">Devamını Oku</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Kart Örneği 2 -->
+        <article class="blog-card">
+          <img
+            class="blog-image"
+            src="{{ url_for('static', filename='img/blog2.jpg') }}"
+            alt="Bağımlılıkla Mücadele 2"
+          />
+          <div class="blog-content">
+            <div>
+              <div class="blog-title">Destek Almanın Önemi</div>
+              <p class="blog-excerpt">
+                Bağımlılıkla mücadelede aile, arkadaş ve profesyonel destek
+                mekanizmalarının önemi ve doğru yaklaşımlar.
+              </p>
+            </div>
+            <div class="blog-meta">
+              <span>15 Eylül 2025</span>
+              <a href="/blog/2" class="btn read-more">Devamını Oku</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Kart Örneği 3 -->
+        <article class="blog-card">
+          <img
+            class="blog-image"
+            src="{{ url_for('static', filename='img/blog3.jpg') }}"
+            alt="Bağımlılıkla Mücadele 3"
+          />
+          <div class="blog-content">
+            <div>
+              <div class="blog-title">Zararlı Alışkanlıklardan Kurtulma</div>
+              <p class="blog-excerpt">
+                Alışkanlıkları değiştirme stratejileri, motivasyon teknikleri ve
+                adım adım iyileşme rehberi.
+              </p>
+            </div>
+            <div class="blog-meta">
+              <span>10 Eylül 2025</span>
+              <a href="/blog/3" class="btn read-more">Devamını Oku</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Kart Örneği 4 -->
+        <article class="blog-card">
+          <img
+            class="blog-image"
+            src="{{ url_for('static', filename='img/blog2.jpg') }}"
+            alt="Bağımlılıkla Mücadele 4"
+          />
+          <div class="blog-content">
+            <div>
+              <div class="blog-title">Farkındalık ve Günlük Egzersizler</div>
+              <p class="blog-excerpt">
+                Günlük yaşamda farkındalık ve küçük alışkanlık değişiklikleri
+                ile bağımlılık riskini azaltmak üzerine pratik ipuçları.
+              </p>
+            </div>
+            <div class="blog-meta">
+              <span>5 Eylül 2025</span>
+              <a href="/blog/4" class="btn read-more">Devamını Oku</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gizlilik Politikası</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='policy.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='header.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="privacy-page">
+      <h1>Gizlilik Politikası</h1>
+
+      <div class="section">
+        <p>
+          Biz, kullanıcılarımızın gizliliğine büyük önem veriyoruz. Bu sayfa,
+          kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve
+          korunduğunu açıklamaktadır.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>1. Topladığımız Bilgiler</h2>
+        <ul>
+          <li>
+            Kullanıcıların verdiği bilgiler: yaş, cinsiyet, eğitim, anket
+            yanıtları gibi.
+          </li>
+          <li>
+            Site kullanım verileri: hangi sayfalara eriştiğiniz, ziyaret
+            süreniz, cihaz bilgileri.
+          </li>
+          <li>
+            Opsiyonel bilgiler: kullanıcıların iletişim için sağladığı e-posta
+            veya geri bildirim notları.
+          </li>
+        </ul>
+        <div class="note-box">
+          Not: Hassas verileriniz üçüncü taraflarla paylaşılmaz.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>2. Bilgi Kullanımı</h2>
+        <ul>
+          <li>Siteyi geliştirmek ve kullanıcı deneyimini iyileştirmek.</li>
+          <li>
+            Risk analizleri ve istatistikler için anonimleştirilmiş verilerin
+            kullanımı.
+          </li>
+          <li>
+            Size özel öneriler veya bilgilendirme mesajları göndermek (varsa
+            e-posta üzerinden).
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>3. Bilgi Paylaşımı</h2>
+        <p>
+          Kişisel bilgileriniz, sizin izniniz olmadan üçüncü kişilerle
+          paylaşılmaz. Yalnızca anonimleştirilmiş veriler istatistiksel amaçlar
+          için kullanılabilir.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>4. Çerezler ve İzleme</h2>
+        <p>
+          Site performansını artırmak ve kullanıcı deneyimini geliştirmek
+          amacıyla çerezler ve temel analiz araçları kullanılabilir. Bu bilgiler
+          kişisel olarak tanımlayıcı değildir.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>5. Bilgi Güvenliği</h2>
+        <p>
+          Verileriniz güvenli sunucular üzerinde korunmaktadır. Yetkisiz erişim,
+          değiştirme veya paylaşım önlenmek için uygun teknik önlemler
+          alınmıştır.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>6. Haklarınız</h2>
+        <ul>
+          <li>Kendi kişisel verilerinize erişme ve düzeltme hakkı.</li>
+          <li>Verilerinizin silinmesini talep etme hakkı.</li>
+          <li>Gizlilik politikamız hakkında bilgi alma hakkı.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>7. İletişim</h2>
+        <p>
+          Herhangi bir gizlilik sorusu veya talebi için
+          <a href="mailto:info@ornek.com">info@ornek.com</a> adresinden bizimle
+          iletişime geçebilirsiniz.
+        </p>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

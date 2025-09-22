@@ -39,43 +39,14 @@
           </div>
         </section>
 
-        <!-- Özet Kartı -->
-        <section class="card summary-card">
-          <h2>Genel Özet</h2>
-          {# Bazı Jinja sürümlerinde dictsort filter'ının attribute parametresi
-          yok; bu yüzden en yüksek olasılığı elle seçiyoruz #} {% set
-          highest_name = None %} {% set highest_pred = None %} {% for drug, pred
-          in predictions.items() %} {% if highest_pred is none or
-          pred['probability'] > highest_pred['probability'] %} {% set
-          highest_name = drug %} {% set highest_pred = pred %} {% endif %} {%
-          endfor %} {% if highest_name %}
-          <div class="summary-item">
-            <div class="summary-title">En yüksek risk</div>
-            <div class="summary-value">
-              {{ highest_name }} — {{ (highest_pred['probability'] * 100) |
-              round(0) }}%
-            </div>
-          </div>
-          {% endif %}
-          <div class="legend">
-            <span class="legend-dot low"></span> Düşük
-            <span class="legend-dot moderate"></span> Orta
-            <span class="legend-dot high"></span> Yüksek
-            <span class="legend-dot very-high"></span> Çok Yüksek
-          </div>
-        </section>
-
         <!-- Risk Sonuçları -->
         <section class="results-column">
-          {% for drug, pred in predictions.items() %}
+          {% for drug, pred in predictions.items() %} {% if pred['risk_level']
+          in ['Very High', 'Çok Yüksek', 'very high'] %}
           <article class="result-card">
             <div class="result-header">
               <div class="drug-name">{{ drug }}</div>
-              <div
-                class="badge {{ 'risk-' ~ pred['risk_level'] | lower | replace(' ', '-') }}"
-              >
-                {{ pred['risk_level'] }}
-              </div>
+              <div class="badge risk-very-high">{{ pred['risk_level'] }}</div>
             </div>
 
             <div class="progress-row">
@@ -92,13 +63,8 @@
 
             <div class="explanation">
               {% if pred.get('explanation') %} {{ pred['explanation'] }} {% else
-              %} {% if pred['risk_level'] in ['Low','Düşük','low'] %} Bu madde
-              için risk düşük görünüyor. Genel önlem: düzenli takip ve bilinçli
-              kullanım. {% elif pred['risk_level'] in
-              ['Moderate','Orta','moderate'] %} Orta düzey risk saptandı.
-              Mümkünse uzman görüşü ve kullanım değerlendirmesi önerilir. {%
-              else %} Yüksek risk tespit edildi. Derhal uzman desteği alınması
-              önerilir. {% endif %} {% endif %}
+              %} Yüksek risk tespit edildi. Derhal uzman desteği alınması
+              önerilir. {% endif %}
             </div>
 
             <div class="actions">
@@ -107,15 +73,9 @@
                 class="btn small"
                 >Daha fazla bilgi</a
               >
-              <a
-                href="#"
-                onclick="window.print();return false;"
-                class="btn outline small"
-                >Yazdır</a
-              >
             </div>
           </article>
-          {% endfor %}
+          {% endif %} {% endfor %}
         </section>
       </div>
     </main>

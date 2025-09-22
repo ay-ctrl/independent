@@ -1,0 +1,55 @@
+/* Gizlilik Politikası Özel Stil */
+main.privacy-page {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 20px;
+  background: #f4fdf7;
+}
+
+h1 {
+  text-align: center;
+  color: #218838;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+h2 {
+  color: #28a745;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+p,
+li {
+  color: #333;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+a {
+  color: #218838;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.note-box {
+  background: #e9f9ee;
+  border-left: 4px solid #28a745;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #555;
+}
