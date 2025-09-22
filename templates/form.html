@@ -25,6 +25,7 @@
           alın. Unutmayın, bağımlılık kronik bir hastalık olabilir, en güvenli
           yol hiç bağlanmamaktır.
         </p>
+
         <form id="wizardForm" method="POST">
           <!-- Adım 1: Age -->
           <div class="form-step active">
@@ -118,65 +119,119 @@
             <button type="button" class="next-btn">İleri</button>
           </div>
 
-          <!-- Adım 6: Personality & Scores -->
+          <!-- Adım 6: Neuroticism -->
           <div class="form-step">
-            <label for="nscore">Neuroticism (nscore):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="nscore"
-              id="nscore"
-              required
-            />
+            <h3>Neuroticism (Nörotiklik)</h3>
+            <p>Duygusal dalgalanmalar, kaygı ve stres eğilimi.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="nscore" value="{{ i }}" required />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="escore">Extraversion (escore):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="escore"
-              id="escore"
-              required
-            />
+          <!-- Adım 7: Extraversion -->
+          <div class="form-step">
+            <h3>Extraversion (Dışadönüklük)</h3>
+            <p>Sosyallik, enerjik olma ve dışa dönüklük düzeyi.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="escore" value="{{ i }}" required />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="oscore">Openness (oscore):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="oscore"
-              id="oscore"
-              required
-            />
+          <!-- Adım 8: Openness -->
+          <div class="form-step">
+            <h3>Openness (Açıklık)</h3>
+            <p>Yeniliklere, sanata ve farklı fikirlere açıklık.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="oscore" value="{{ i }}" required />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="ascore">Agreeableness (ascore):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="ascore"
-              id="ascore"
-              required
-            />
+          <!-- Adım 9: Agreeableness -->
+          <div class="form-step">
+            <h3>Agreeableness (Uyumluluk)</h3>
+            <p>Empati, yardımseverlik ve iş birliği düzeyi.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="ascore" value="{{ i }}" required />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="cscore">Conscientiousness (cscore):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="cscore"
-              id="cscore"
-              required
-            />
+          <!-- Adım 10: Conscientiousness -->
+          <div class="form-step">
+            <h3>Conscientiousness (Sorumluluk)</h3>
+            <p>Düzenlilik, planlılık ve öz disiplin.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="cscore" value="{{ i }}" required />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="impulsive">Impulsiveness:</label>
-            <input
-              type="number"
-              step="0.01"
-              name="impulsive"
-              id="impulsive"
-              required
-            />
+          <!-- Adım 11: Impulsiveness -->
+          <div class="form-step">
+            <h3>Impulsiveness (Dürtüsellik)</h3>
+            <p>Kontrolsüz karar verme ve ani tepkilere yatkınlık.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input
+                  type="radio"
+                  name="impulsive"
+                  value="{{ i }}"
+                  required
+                />
+                {{ i }}</label
+              >
+              {% endfor %}
+            </div>
+            <button type="button" class="prev-btn">Geri</button>
+            <button type="button" class="next-btn">İleri</button>
+          </div>
 
-            <label for="ss">Sensation Seeking (ss):</label>
-            <input type="number" step="0.01" name="ss" id="ss" required />
-
+          <!-- Adım 12: Sensation Seeking -->
+          <div class="form-step">
+            <h3>Sensation Seeking (Heyecan Arayışı)</h3>
+            <p>Yeni deneyimlere ve risk almaya eğilim.</p>
+            <div>
+              {% for i in range(1,8) %}
+              <label
+                ><input type="radio" name="ss" value="{{ i }}" required /> {{ i
+                }}</label
+              >
+              {% endfor %}
+            </div>
             <button type="button" class="prev-btn">Geri</button>
             <button type="submit">Gönder</button>
           </div>
@@ -194,10 +249,10 @@
 
       nextBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-          if (
-            !steps[currentStep].querySelector("select, input").checkValidity()
-          )
-            return;
+          const inputs = steps[currentStep].querySelectorAll("select, input");
+          for (let input of inputs) {
+            if (!input.checkValidity()) return;
+          }
           steps[currentStep].classList.remove("active");
           currentStep++;
           steps[currentStep].classList.add("active");

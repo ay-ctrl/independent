@@ -1,92 +1,118 @@
-/* Genel sayfa stilleri */
-
+/* Form container */
 .form-container {
   background-color: #ffffff;
   padding: 30px 40px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 80px;
-}
-
-.form-container h1 {
+  margin: 80px auto;
+  max-width: 500px;
+  width: 100%;
   text-align: center;
-  margin-bottom: 25px;
-  color: #333333;
+  margin-top: 150px;
 }
 
-/* Form adımları */
+/* Başlık ve açıklama */
+.form-container h1 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #333;
+}
+
+.form-container p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Adım görünümleri */
 .form-step {
   display: none;
   flex-direction: column;
+  gap: 15px;
+  text-align: left;
 }
 
 .form-step.active {
   display: flex;
 }
 
-/* Etiket ve input stilleri */
-label {
-  margin-top: 15px;
-  margin-bottom: 5px;
+/* Label */
+.form-step label {
   font-weight: 600;
-  color: #555555;
+  color: #444;
+  margin-bottom: 5px;
 }
 
-input,
-select {
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
+/* Select ve Input */
+.form-step select,
+.form-step input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 14px;
   width: 100%;
-  box-sizing: border-box;
+  transition: border 0.2s ease;
 }
 
-input:focus,
-select:focus {
-  border-color: #6c63ff;
+.form-step select:focus,
+.form-step input:focus {
+  border-color: #27ae60; /* Ana yeşil */
   outline: none;
-  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Radio group (kişilik skorları için) */
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.radio-group label {
+  font-weight: normal;
+  font-size: 13px;
+  text-align: center;
+}
+
+.radio-group input {
+  margin-top: 5px;
 }
 
 /* Butonlar */
-.form-container button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
+.next-btn,
+.prev-btn,
+button[type="submit"] {
+  padding: 10px 18px;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.next-btn {
-  background-color: #6c63ff;
+  border-radius: 8px;
+  background-color: #27ae60; /* Ana yeşil */
   color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.next-btn:hover {
-  background-color: #574fd6;
+.next-btn:hover,
+button[type="submit"]:hover {
+  background-color: #219150; /* Daha koyu yeşil hover */
 }
 
 .prev-btn {
-  background-color: #cccccc;
-  color: #333333;
-  margin-right: 10px;
+  background-color: #6c757d; /* Nötr gri */
 }
 
 .prev-btn:hover {
-  background-color: #aaaaaa;
+  background-color: #5a6268; /* Daha koyu gri hover */
 }
 
-/* Son adım submit butonu */
-form button[type="submit"] {
-  background-color: #28a745;
-  color: white;
-  width: 100%;
-}
+/* Mobil uyum */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
 
-form button[type="submit"]:hover {
-  background-color: #218838;
+  .form-container h1 {
+    font-size: 22px;
+  }
 }
